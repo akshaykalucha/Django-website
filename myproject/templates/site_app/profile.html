@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="global-nav">
+        <a class="navbar-brand" href="{% url 'home' %}">Akshay Kalucha</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'profile' %}">Profile <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="about.htm">About <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="mywork">
+        <h2 class="workex">Work Experience</h2>
+
+        <div class="containernew">
+            <div class="exp1" id="exp1">
+                <h4>MASH Project Foundation</h4>
+                <h5>Graphic Designer</h5>
+                <p>- Created Infographics highlighting importance of various SDGs <br>
+                    - Was in Logistics team at India CSR summit, managed IT/Audio-Visuals for 2 days at the
+                    summit along with ha doing logistics <br>
+                    - Was IT head at Daan Utsav, created Graphics</p>
+            </div>
+
+            <div class="exp1" id="exp1">
+                <h4>DUBulletin</h4>
+                <h5>CoFounder</h5>
+                <p>DU Bulletin is an independent online media platform working towards making the students
+                    aware regarding each and every ins and outs of the University of Delhi. We intend to provide
+                    students with the information regarding the various social, cultural and academic events
+                    going around in different colleges. We also provide various societies in various colleges a
+                    chance to promote their events and fests. Our sole purpose is to bring information to
+                    limelight because information brings opportunity and opportunities bring success.</p>
+            </div>
+
+            <div class="exp1" id="exp1">
+                <h4>CORPVERSITY</h4>
+                <h5>Intern</h5>
+                <p>Junior technical intern at corpversity Pvt ltd. Created graphics, managed Instagram page, interacted
+                    with
+                    people understand there problems and suggesting them solutions in field of SEO and database
+                    management
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <div class="skills">
+        <h1 id="myskill">SKILLSET</h1>
+    </div>
+    <div class="table-responsive">
+        {% if acc_records %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Interest</th>
+                    <th scope="col">Skill</th>
+                    <th scope="col">Activity</th>
+
+                </tr>
+            </thead>
+            <tbody>
+            {% for acc in acc_records %}
+                <tr>
+                    <td id="prg">{{ acc.Interest }}</td>
+                    <td>{{ acc.Skill }}</td>
+                    <td>{{ acc.Activity }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% else %}
+           <p>NOnojonono</p>
+        {% endif %}
+    </div>
+
+    <section id="logos">
+        <div class="container">
+            <h2>STAY CONNECTED </h2>
+            <div class="icons">
+                <a href="https://www.twitter.com/lifeofakshy">
+                    <i class="fab fa-twitter fa-2x"></i>
+                </a>
+                <a id="element2" href="#!">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+                <a href="https://www.instagram.com/lifeofakshy">
+                    <i class="fab fa-instagram fa-2x"></i>
+                </a>
+                <a href="https://www.github.com/akshaykalucha3">
+                    <i class="fab fa-github fa-2x"></i>
+                </a>
+                <a href="https://www.facebook.com/akshay.kalucha">
+                    <i class="fab fa-facebook fa-2x"></i>
+                </a>
+                <a href="https://www.snapchat.com/add/akshaykalucha3">
+                    <i class="fab fa-snapchat fa-2x"></i>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="items">
+            <a href="{% url 'contact' %}">CONTACT</a>
+            <a href="{% url 'profile' %}">PROFILE</a>
+            <a href="{% url 'home' %}">HOME</a>
+            <a href="about.htm">ABOUT</a>
+        </div>
+    </footer>
+</body>
+
+</html>
